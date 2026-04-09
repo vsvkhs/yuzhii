@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: hiwifi_hc5861
+name: qihoo_360t7
 
 on:
   repository_dispatch:
@@ -20,7 +20,7 @@ env:
   REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-24.10
   REPO_BRANCH: openwrt-24.10-66
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: hiwifi_hc5861.config
+  CONFIG_FILE: qihoo_360t7.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
