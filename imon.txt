@@ -1,0 +1,46 @@
+首先装好 Linux 系统推荐Debian 11（2022-03-26） （https://laotzu.ftp.acc.umu.se/debian-cd/current/amd64/iso-cd/debian-11.3.0-amd64-netinst.iso）或 Ubuntu LTS
+安装编译依赖：                            （2023-04-30） （https://laotzu.ftp.acc.umu.se/debian-cd/current/amd64/iso-cd/debian-11.7.0-amd64-netinst.iso）hyper-v1代额外安装介质选否-tsinghua教育镜像（30+Mbps）软件包流行度调查否xfce桌面（V4.16）（1178个）25分钟左右安装完成。电源管理器关闭锁屏！
+sed -i 's/192.168.1.1/192.168.36.1/g' package/base-files/files/bin/config_generate
+Debian默认是不允许root登录的，   $是普通用户（＃是root用户）
+用户普通用户登录,打开终端,输入 命令 su - 回车
+sudo apt update -y
+sudo apt full-upgrade -y
+sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
+  bzip2 ccache clang cmake cpio curl device-tree-compiler ecj fastjar flex gawk gettext gcc-multilib \
+  g++-multilib git gnutls-dev gperf haveged help2man intltool lib32gcc-s1 libc6-dev-i386 libelf-dev \
+  libglib2.0-dev libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses-dev libpython3-dev \
+  libreadline-dev libssl-dev libtool libyaml-dev libz-dev lld llvm lrzsz mkisofs msmtp nano \
+  ninja-build p7zip p7zip-full patch pkgconf python3 python3-pip python3-ply python3-docutils \
+  python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig texinfo uglifyjs \
+  upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd
+su - vkhs
+git clone -b openwrt-24.10-6.6 --single-branch --filter=blob:none https://github.com/padavanonly/immortalwrt-mt798x-24.10 immortalwrt-mt798x-24.10
+cd immortalwrt-mt798x-24.10
+
+sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
+选上面或下面
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome 或
+git clone https://github.com/stevenjoezhang/luci-app-adguardhome.git package/ADGH
+git clone https://github.com/sirpdboy/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dnsfilter
+./scripts/feeds update -a
+./scripts/feeds install -a
+# MT7981                                      修改ip地址package/base-files/files/bin/config_generate
+cp -f defconfig/mt7981-ax3000.config .config
+# MT7986
+cp -f defconfig/mt7986-ax6000.config .config
+---------------------------------------------------
+cd immortalwrt-mt798x-24.10
+rm -rf ./tmp && rm -rf .config            make clean         make dirclean            rm -rf bin/ dl/ staging_dir/ build_dir/ tmp/          rm -rf ~/.ccache
+                                                          du -sh ./dl ./build_dir ./staging_dir ./tmp 2>/dev/null | sort -h
+
+# MT7981
+cp -f defconfig/mt7981-ax3000.config .config
+
+# MT7986
+cp -f defconfig/mt7986-ax6000.config .config
+make menuconfig
+make download -j4
+make V=s -j1
+---------------------------------------------------
