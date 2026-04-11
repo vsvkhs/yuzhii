@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: 5962final
+name: hiwifi_hc5962finalf
 
 on:
   repository_dispatch:
