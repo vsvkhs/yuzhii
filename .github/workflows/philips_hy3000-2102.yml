@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: 2102philips_hy3000
+name: philips_hy3000-2102
 
 on:
   repository_dispatch:
