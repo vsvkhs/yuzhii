@@ -78,8 +78,8 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-        - name: 加载 config
-       run: |
+    - name: loading config
+      run: |
         cd openwrt
         cp defconfig/mt7981-ax3000.config .config
 
