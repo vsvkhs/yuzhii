@@ -73,7 +73,7 @@ jobs:
     - name: load config
       run: |
         cd openwrt
-        cp defconfig/mt7981-ax3000.config .config
+        cp -f defconfig/mt7981-ax3000.config .config
 
     - name: Load custom configuration
       run: |
