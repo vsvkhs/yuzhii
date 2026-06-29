@@ -10,21 +10,21 @@
 # See /LICENSE for more information.
 #
 
-name: hiwifi_hc5962
+name: yuzhii-hi5962
 
 on:
   repository_dispatch:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-24.10
+  REPO_URL: https://github.com/Yuzhii0718/immortalwrt-mt798x-6.6-padavanonly
   REPO_BRANCH: openwrt-24.10-6.6
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: 5962M.config
+  CONFIG_FILE: yuzhii-hi5962.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: true
+  UPLOAD_BIN_DIR: true
+  UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
@@ -69,6 +69,10 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
+
+    - name: load defconfig
+      run: |
+        cd openwrt
 
     - name: Load custom configuration
       run: |
