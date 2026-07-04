@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: yuzhii-hi5962
+name: yuzhii-AC85P
 
 on:
   repository_dispatch:
