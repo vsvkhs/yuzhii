@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: yuzhii-rax3km4
+name: yuzhii-rax3km
 
 on:
   repository_dispatch:
