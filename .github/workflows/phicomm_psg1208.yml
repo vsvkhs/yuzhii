@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: yuzhii-psg1208
+name: phicomm_psg1208
 
 on:
   repository_dispatch:
