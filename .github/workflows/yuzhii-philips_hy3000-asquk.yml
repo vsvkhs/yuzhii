@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: yuzhii-hy3k
+name: yuzhii-philips_hy3000-asquk
 
 on:
   repository_dispatch:
@@ -20,7 +20,7 @@ env:
   REPO_URL: https://github.com/Yuzhii0718/immortalwrt-mt798x-6.6-padavanonly
   REPO_BRANCH: openwrt-24.10-6.6
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: yuzhii-hy3k.config
+  CONFIG_FILE: yuzhii-philips_hy3000-asquk.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
