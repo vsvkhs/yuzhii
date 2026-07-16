@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: yuzhii-hy3k-docker
+name: yuzhii-philips_hy3000-docker-asquk
 
 on:
   repository_dispatch:
